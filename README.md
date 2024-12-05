@@ -18,3 +18,18 @@ represents a second attempt using sklearn to determine class weights.
 ## Outcome
 
 Accuracy for uncommon forms has improved.  In the first iteration, results for uncommon forms were completely inaccurate.  With this version, labels are correct although confidence is still low.  Interested parties can use the [fine-tuned model](./efficientnet_lite4_psworkbook_weighted.tflite) with [MediaPipe Studio](https://mediapipe-studio.webapps.google.com/studio/demo/image_classifier) to check accuracy for themselves.
+
+## Setup
+
+There are some minor logistical challenges with `MediaPipe Model Maker`.  The largest is that the library isn't compatible with Python 3.12.  To run this training job, use Python 3.11.  The primary dependencies for this project are:
+
+```
+# Don't use latest versions due to NumPy 2.0 transition
+tensorflow-text==2.16.1
+mediapipe-model-maker
+# Upgrade tensorflow to include associated CUDA capabilities
+'tensorflow[and-cuda]'
+mlflow
+```
+
+See [pip freeze output](./requirements-freeze.txt) for more details.
