@@ -1,0 +1,3 @@
+# Pinning mediapipe as Google isn't great at back-compat
+mediapipe==0.10.18
+tqdm
